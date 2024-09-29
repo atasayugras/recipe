@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/header') %>
+    <body>
+        <div class="main-content">
+            <!-- Search Input -->
+            <div class="searchContainer">
+                <form id="searchForm" action="/search" method="POST">
+                    <input type="text" id="searchInput" class="pointer-area" name="query" placeholder="Search for recipes..." required>
+                    <button type="submit" id="searchButton" class="pointer-area">Search</button>
+                </form>
+            </div>
+
+            <!-- Results Section -->
+            <div id="results">
+                <% if (data && data.length > 0) { %>
+                    <div class="item-grid">
+                        <% data.forEach(item => { %>
+                            <div class="item-card pointer-area">
+                                <img src="<%= item.image %>" alt="<%= item.title %>">
+                                <strong><%= item.title %></strong>
+                                <div class="diet-info">
+                                    <p>Gluten Free: <%= item.glutenFree ? 'Yes' : 'No' %></p>
+                                    <p>Dairy Free: <%= item.dairyFree ? 'Yes' : 'No' %></p>
+                                    <p>Vegetarian: <%= item.vegetarian ? 'Yes' : 'No' %></p>
+                                    <p>Vegan: <%= item.vegan ? 'Yes' : 'No' %></p>
+                                </div>
+                                <a href="<%= item.sourceUrl %>" target="_blank">View Full Recipe</a>
+                            </div>
+                        <% }); %>
+                    </div>
+                <% } else if (error) { %>
+                    <p><%= error %></p>
+                <% } else { %>
+                    <p>No results found. Please try again.</p>
+                <% } %>
+            </div>
+        </div>
+
+        <script src="/scripts/main.js"></script>
+        <%- include('../partials/footer') %> <!-- Include footer -->
+    </body>
+</html>
