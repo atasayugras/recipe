@@ -29,25 +29,34 @@ Follow these steps to set up the project locally:
 1. **Clone the repository**:
    ```bash
    git clone <repository-url>
-   cd <repository-folder>
+   cd <repository-folder>```
 
-### Install dependencies:
-npm install
+2. **Install dependencies**:
+   ```bash
+   npm install
 
-### Create a .env file with your API credentials:
-API_URL=<your_api_url>
-API_KEY=<your_api_key>
+3. **Create a .env file with your API credentials**:
+   ```bash
+   API_URL=<your_api_url>
+   API_KEY=<your_api_key>```
 
-### Start the server:
-node index.js
+4. **Start the server**:
+   ```bash
+   node index.js
+
+---
 
 ### Directory Structure
-.
-├── public/            # Static assets (CSS, JS, images)
-├── views/             # EJS templates
-├── .env               # Environment variables
-├── package.json       # Project dependencies
-└── server.js          # Main server file
+   ```bash
+   .
+   ├── public/            # Static assets (CSS, JS, images)
+   ├── views/             # EJS templates
+   ├── .env               # Environment variables
+   ├── package.json       # Project dependencies
+   └── server.js          # Main server file
+```
+
+---
 
 ### Contributing
 Feel free to fork the repository and submit pull requests for any improvements!
