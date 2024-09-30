@@ -37,7 +37,7 @@ app.post("/search", async (req, res) => {
         const searchResponse = await axios.get(`${API_URL}/recipes/complexSearch`, {
             params: {
                 query: query,
-                number: 1, // Limit results (Make it 8 after you're satisfied)
+                number: 8, // Limit results (Make it 8 after you're satisfied)
                 apiKey: API_KEY
             }
         });

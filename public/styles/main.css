@@ -1,156 +1,152 @@
 * {
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif; /* Updated to Montserrat */
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
 }
 
 /* Navigation Bar Styles */
 .navbar {
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Center items vertically */
-    justify-content: space-between; /* Space between logo and links */
-    background-color: #6FBF92; /* High contrast pastel green background color */
-    padding: 15px 20px; /* Padding around the navbar */
-    width: 100%; /* Make the navbar full width */
-    position: relative; /* Position relative to prevent overlap */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #6FBF92;
+    padding: 15px 20px;
+    width: 100%;
+    position: relative;
 }
 
 .logo a {
-    color: white; /* White text color for better readability */
-    font-size: 24px; /* Font size for the logo */
-    font-weight: bold; /* Bold text */
-    text-decoration: none; /* Remove underline */
-    transition: color 0.3s; /* Smooth color transition */
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
 }
 
 .logo a:hover {
-    color: #eee; /* Lighten color on hover */
+    color: #eee;
 }
 
 .nav-links {
-    list-style: none; /* Remove default list styles */
-    display: flex; /* Use flexbox for horizontal layout */
-    margin: 0; /* Remove margin */
-    padding: 0; /* Remove padding */
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links li {
-    margin-left: 20px; /* Space between links */
+    margin-left: 20px;
 }
 
 .nav-links a {
-    text-decoration: none; /* Remove underline from links */
-    color: white; /* White link color for better readability */
-    font-size: 18px; /* Font size for links */
-    transition: color 0.3s; /* Smooth color transition */
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s;
 }
 
 .nav-links a:hover {
-    color: #eee; /* Lighten color on hover */
+    color: #eee;
 }
 
 /* Responsive adjustments for mobile view */
 @media (max-width: 600px) {
     .nav-links {
-        flex-direction: column; /* Stack links vertically */
-        margin-top: 10px; /* Space above links */
+        flex-direction: column;
+        margin-top: 10px;
     }
 
     .nav-links li {
-        margin-left: 0; /* Remove left margin on mobile */
-        margin-bottom: 10px; /* Space below links */
+        margin-left: 0;
+        margin-bottom: 10px;
     }
 }
 
 html, body {
-    height: 100%; /* Ensure full height for flexbox */
+    height: 100%;
 }
 
 body {
-    display: flex; /* Enable flexbox */
-    flex-direction: column; /* Arrange children in a column */
-    margin: 0; /* Remove default margin */
-    background-color: #f0f5f1; /* Keep your existing background */
-    color: #333; /* Existing text color */
-    font-family: 'Montserrat', sans-serif; /* Use Montserrat for body text */
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    background-color: #f0f5f1;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
     cursor: url('/assets/cursors/cursor.cur'), auto;
 }
-/*
-.pointer-area {
-    cursor: url('/assets/cursors/pointer.cur'), auto;
-}
-*/
+
 .main-content {
-    flex: 1; /* Allow the main content to grow and fill space */
-    display: flex; /* Enable flex for content alignment if needed */
-    flex-direction: column; /* Column direction */
-    align-items: center; /* Center content */
-    padding: 20px; /* Existing padding */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
 
 .searchContainer {
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Center items vertically */
-    max-width: 1200px; /* Limit max-width */
-    width: 100%; /* Make it responsive */
-    margin: 0 auto; /* Center horizontally */
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 form {
-    display: flex; /* Set the form to use flexbox */
-    width: 100%; /* Make the form take the full width of the container */
+    display: flex;
+    width: 100%;
 }
 
 input[type="text"] {
-    flex-grow: 1; /* Allow input to grow and fill available space */
-    min-width: 0; /* Prevent overflow in flex containers */
-    padding: 10px 15px; /* Consistent padding, adjust if needed */
-    font-size: 18px; /* Font size */
-    border: 1px solid #ccc; /* Subtle border */
-    border-radius: 5px; /* Rounded corners */
-    background-color: #f9f9f9; /* Light background color */
-    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
-    margin-right: 10px; /* Space between input and button */
+    flex-grow: 1;
+    min-width: 0;
+    padding: 10px 15px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    margin-right: 10px;
 }
 
 input[type="text"]:focus {
-    border-color: #6FBF92; /* Change border color on focus */
-    box-shadow: 0 0 5px rgba(111, 191, 146, 0.5); /* Subtle shadow on focus */
-    outline: none; /* Remove default outline */
+    border-color: #6FBF92;
+    box-shadow: 0 0 5px rgba(111, 191, 146, 0.5);
+    outline: none;
 }
 
 /* Button styles */
 button {
-    padding: 10px 15px; /* Button padding */
-    font-size: 18px; /* Font size */
-    color: white; /* White text color */
-    background-color: #6FBF92; /* High contrast button background */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer on hover */
-    flex-shrink: 0; /* Prevent the button from shrinking */
-    font-family: 'Montserrat', sans-serif; /* Use Montserrat for button */
+    padding: 10px 15px;
+    font-size: 18px;
+    color: white;
+    background-color: #6FBF92;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    flex-shrink: 0;
+    font-family: 'Montserrat', sans-serif;
 }
 
 button:hover {
-    background-color: #4CAF50; /* Lighter pastel color on hover */
+    background-color: #4CAF50;
 }
 
 p {
-    margin-top: 20px; /* Space above the paragraph */
-    padding: 10px; /* Space inside the paragraph */
-    border-radius: 5px; /* Optional: Rounded corners */
-    font-family: 'Montserrat', sans-serif; /* Use Montserrat for paragraph */
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .item-grid {
-    display: flex; /* Flexbox for the grid */
-    flex-wrap: wrap; /* Allow items to wrap into new lines */
-    justify-content: space-between; /* Space between items */
-    max-width: 1200px; /* Limit max-width for grid */
-    width: 100%; /* Allow it to be responsive */
-    margin: 20px auto; /* Center grid in the container */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Ensure items are spread out */
+    max-width: 1200px;
+    width: 100%;
+    margin: 20px auto;
     gap: 20px; /* Space between cards */
 }
 
@@ -160,35 +156,45 @@ p {
     padding: 20px;
     text-align: center;
     border-radius: 10px;
-    flex: 1 1 calc(25% - 20px); /* 4 cards per row minus gap */
-    max-width: 300px; /* Max width for cards to prevent overflow */
-    font-family: 'Montserrat', sans-serif; /* Use Montserrat for card titles */
+    flex: 1 1 calc(25% - 20px); /* Default to 4 cards per row */
+    max-width: 25%; /* Ensures max width for 4 cards */
 }
 
 .item-card img {
-    max-width: 100%; /* Responsive image */
-    border-radius: 10px; /* Rounded corners for images */
+    max-width: 100%;
+    border-radius: 10px;
 }
 
 .item-card h3 {
-    color: #3A3A3A; /* Darker color for titles */
+    color: #3A3A3A;
 }
 
 .diet-info p {
-    margin: 5px 0; /* Add some margin for better spacing */
-    font-family: 'Montserrat', sans-serif; /* Maintain consistency with diet info */
+    margin: 5px 0;
+    font-family: 'Montserrat', sans-serif;
 }
 
 /* Responsive adjustments for tablet view */
-@media (min-width: 601px) and (max-width: 900px) {
+@media (max-width: 900px) {
     .item-card {
-        flex: 0 1 calc(50% - 20px); /* 2 cards per row on tablet */
+        flex: 1 1 calc(33.33% - 20px); /* 3 cards per row */
+        max-width: 33.33%;
+    }
+}
+
+/* Responsive adjustments for small tablets */
+@media (max-width: 768px) {
+    .item-card {
+        flex: 1 1 calc(50% - 20px); /* 2 cards per row */
+        max-width: 50%;
     }
 }
 
 /* Responsive adjustments for mobile view */
 @media (max-width: 600px) {
     .item-card {
-        flex: 0 1 calc(100% - 20px); /* 1 card per row on mobile */
+        flex: 1 1 100%; /* 1 card per row */
+        max-width: 100%;
+        margin: 0; /* Remove any margins */
     }
 }
