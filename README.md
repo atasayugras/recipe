@@ -16,10 +16,13 @@ A web application that allows users to search for recipes based on their dietary
 
 ---
 
-## API rate limit
+## API
 
-- Usually, every request is 1 point and 0.01 points per result returned, but there are many exceptions.
-- Daily limit for requests are 150 points.
+This project utilizes the **[Spoonacular API](https://spoonacular.com/food-api)** for fetching recipe data.
+
+You can view the live project here: [Live Demo](https://recipe-rmhp.onrender.com)
+
+**Rate limit:** Daily limit for requests are **150 points.** Usually, **every request is 1 point** and **0.01 points per result returned**, but there are many exceptions.
 
 ---
 
