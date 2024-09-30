@@ -16,6 +16,13 @@ A web application that allows users to search for recipes based on their dietary
 
 ---
 
+## API rate limit
+
+- Usually, every request is 1 point and 0.01 points per result returned, but there are many exceptions.
+- Daily limit for requests are 150 points.
+
+---
+
 ## Getting Started
 
 ### Prerequisites
