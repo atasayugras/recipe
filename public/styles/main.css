@@ -239,6 +239,5 @@ button:hover {
         flex: 1 1 100%; /* 1 card per row */
         max-width: 100%;
         margin: 0; /* Remove any margins */
-        white-space: nowrap;
     }
 }
