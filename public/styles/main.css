@@ -1,24 +1,69 @@
+/* Global Styles */
 * {
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
     margin: 0;
     padding: 0;
 }
 
-/* Navigation Bar Styles */
+html, body {
+    height: 100%; /* Make sure body and html take full height */
+    width: 100%;  /* Ensure body and html take full width */
+    background-color: #f0f5f1;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    cursor: url('/assets/cursors/cursor.cur'), auto;
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Arrange children in a column */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure it takes at least full height of viewport */
+    max-width: 1200px; /* Set maximum width */
+    width: 100%; /* Ensure container takes full available width */
+    margin: auto; /* Center the container */
+    padding: 20px; /* Add padding inside the container */
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1; /* Allow main content to grow and fill the available space */
+    padding: 20px; /* Add padding for spacing */
+}
+
+form {
+    display: flex;
+}
+
+footer {
+    background-color: #6FBF92;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    position: relative;
+    bottom: 0; /* Position it at the bottom */
+}
+/* ********** NAV ********** */
 .navbar {
     display: flex;
+    justify-content: space-between; /* Ensure the points info aligns to the right */
     align-items: center;
-    justify-content: space-between;
     background-color: #6FBF92;
     padding: 15px 20px;
     width: 100%;
-    position: relative;
 }
 
 .logo a {
     color: white;
-    font-size: 24px;
+    font-size: 1.5 rem;
     font-weight: bold;
     text-decoration: none;
     transition: color 0.3s;
@@ -28,63 +73,28 @@
     color: #eee;
 }
 
-.nav-links {
-    list-style: none;
+/* Points */
+.points-info {
+    font-size: 0.9em;
+    color: #666; /* Subtle gray color */
+    margin-left: auto; /* Aligns points info to the right */
+    padding: 10px;
+    white-space: nowrap; /* Prevents breaking of text */
+}
+
+.quota-info {
     display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links li {
-    margin-left: 20px;
-}
-
-.nav-links a {
-    text-decoration: none;
+    flex-direction: column;
+    align-items: flex-end;
     color: white;
-    font-size: 18px;
-    transition: color 0.3s;
+    font-size: 14px;
 }
 
-.nav-links a:hover {
-    color: #eee;
-}
-
-/* Responsive adjustments for mobile view */
-@media (max-width: 600px) {
-    .nav-links {
-        flex-direction: column;
-        margin-top: 10px;
-    }
-
-    .nav-links li {
-        margin-left: 0;
-        margin-bottom: 10px;
-    }
-}
-
-html, body {
-    height: 100%;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
+.quota-info p {
     margin: 0;
-    background-color: #f0f5f1;
-    color: #333;
-    font-family: 'Montserrat', sans-serif;
-    cursor: url('/assets/cursors/cursor.cur'), auto;
 }
 
-.main-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-}
-
+/* ********** SEARCH INPUT SECTION ********** */
 .searchContainer {
     display: flex;
     align-items: center;
@@ -93,14 +103,17 @@ body {
     margin: 0 auto;
 }
 
-form {
-    display: flex;
+#searchInput {
     width: 100%;
+}
+
+.search-form {
+    width: 100%;
+    display: flex; /* Use flexbox to align the input and button */
 }
 
 input[type="text"] {
     flex-grow: 1;
-    min-width: 0;
     padding: 10px 15px;
     font-size: 18px;
     border: 1px solid #ccc;
@@ -116,7 +129,7 @@ input[type="text"]:focus {
     outline: none;
 }
 
-/* Button styles */
+/* Button Styles */
 button {
     padding: 10px 15px;
     font-size: 18px;
@@ -126,31 +139,27 @@ button {
     border-radius: 5px;
     cursor: pointer;
     flex-shrink: 0;
-    font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.3s;
 }
 
 button:hover {
     background-color: #4CAF50;
 }
 
-p {
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 5px;
-    font-family: 'Montserrat', sans-serif;
-}
-
+/* ********** CARDS ********** */
 .item-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between; /* Ensure items are spread out */
     max-width: 1200px;
     width: 100%;
-    margin: 20px auto;
     gap: 20px; /* Space between cards */
 }
 
 .item-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     background-color: white;
     border: 1px solid #ccc;
     padding: 20px;
@@ -163,18 +172,48 @@ p {
 .item-card img {
     max-width: 100%;
     border-radius: 10px;
+    object-fit: cover; /* Ensures image covers the box without distortion */
 }
 
-.item-card h3 {
-    color: #3A3A3A;
+/* ********** PAGINATION ********** */
+.pagination {
+    display: flex;
+    align-items: center; /* Aligns items vertically centered */
+    justify-content: flex-end; /* Align items to the right */
+    margin-top: 20px;
+    width: 100%; /* Ensure it takes the full width of the parent container */
 }
 
-.diet-info p {
-    margin: 5px 0;
-    font-family: 'Montserrat', sans-serif;
+.pagination span {
+    font-size: 16px;
+    white-space: nowrap; /* Prevents wrapping */
+    margin-right: 10px; /* Space between the span and the Previous button */
+    flex-grow: 1; /* Allow the span to fill remaining space */
 }
 
-/* Responsive adjustments for tablet view */
+.pagination form {
+    display: inline-block;
+}
+
+.pagination button {
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #6FBF92;
+    background-color: transparent;
+    border: 1px solid #6FBF92;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-left: 10px; /* Space between Previous and Next buttons */
+}
+
+.pagination button:hover {
+    background-color: #6FBF92;
+    color: white;
+}
+
+/* ********** BREAKPOINTS ********** */
+/* TABLET*/
 @media (max-width: 900px) {
     .item-card {
         flex: 1 1 calc(33.33% - 20px); /* 3 cards per row */
@@ -182,7 +221,7 @@ p {
     }
 }
 
-/* Responsive adjustments for small tablets */
+/* SMALL TABLET */
 @media (max-width: 768px) {
     .item-card {
         flex: 1 1 calc(50% - 20px); /* 2 cards per row */
@@ -190,11 +229,12 @@ p {
     }
 }
 
-/* Responsive adjustments for mobile view */
+/* MOBILE */
 @media (max-width: 600px) {
     .item-card {
         flex: 1 1 100%; /* 1 card per row */
         max-width: 100%;
         margin: 0; /* Remove any margins */
+        white-space: nowrap;
     }
 }

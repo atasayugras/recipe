@@ -1,43 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/header') %>
+    <%- include('../partials/header', {
+        pointsRemaining: pointsRemaining || 0,  // Set default 0 if undefined
+        totalPointsUsed: totalPointsUsed || 0,  // Set default 0 if undefined
+        pointsUsedForRequest: pointsUsedForRequest || 0  // Set default 0 if undefined
+    }) %>
     <body>
-        <div class="main-content">
-            <!-- Search Input -->
-            <div class="searchContainer">
-                <form id="searchForm" action="/search" method="POST">
-                    <input type="text" id="searchInput" class="pointer-area" name="query" placeholder="Search for recipes..." required>
-                    <button type="submit" id="searchButton" class="pointer-area">Search</button>
-                </form>
-            </div>
+        <div class="container">
+            <div class="main-content">
+                <!-- Search Input -->
+                <div class="searchContainer">
+                    <form id="searchForm" class="search-form" action="/search" method="POST">
+                        <input type="text" id="searchInput" name="query" placeholder="Search for recipes..." required>
+                        <button type="submit" id="searchButton">Search</button>
+                    </form>
+                </div>
 
-            <!-- Results Section -->
-            <div id="results">
-                <% if (data && data.length > 0) { %>
-                    <div class="item-grid">
-                        <% data.forEach(item => { %>
-                            <div class="item-card pointer-area">
-                                <img src="<%= item.image %>" alt="<%= item.title %>">
-                                <strong><%= item.title %></strong>
-                                <div class="diet-info">
-                                    <p>Gluten Free: <%= item.glutenFree ? 'Yes' : 'No' %></p>
-                                    <p>Dairy Free: <%= item.dairyFree ? 'Yes' : 'No' %></p>
-                                    <p>Vegetarian: <%= item.vegetarian ? 'Yes' : 'No' %></p>
-                                    <p>Vegan: <%= item.vegan ? 'Yes' : 'No' %></p>
+                <!-- Results Section -->
+                <p> Recipes that include "<%= query %>".</p>
+                <div id="results">
+                    <% if (!searchInitiated) { %>
+                        <p class="welcome-message">Type in ingredients or food names, and we'll find the perfect recipe for you!</p>
+                    <% } else if (data && data.length > 0) { %>
+                        <div class="item-grid">
+                            <% data.forEach(item => { %>
+                                <div class="item-card">
+                                    <img src="<%= item.image %>" alt="<%= item.title %>">
+                                    <strong><%= item.title %></strong>
+                                    <div class="diet-info">
+                                        <p>Gluten Free: <%= item.glutenFree ? 'Yes' : 'No' %></p>
+                                        <p>Dairy Free: <%= item.dairyFree ? 'Yes' : 'No' %></p>
+                                        <p>Vegetarian: <%= item.vegetarian ? 'Yes' : 'No' %></p>
+                                        <p>Vegan: <%= item.vegan ? 'Yes' : 'No' %></p>
+                                    </div>
+                                    <a href="<%= item.sourceUrl %>" target="_blank">View Full Recipe</a>
                                 </div>
-                                <a href="<%= item.sourceUrl %>" target="_blank">View Full Recipe</a>
-                            </div>
-                        <% }); %>
-                    </div>
-                <% } else if (error) { %>
-                    <p><%= error %></p>
-                <% } else { %>
-                    <p>No results found. Please try again.</p>
-                <% } %>
-            </div>
-        </div>
+                            <% }); %>
+                        </div>
+                    <% } else if (error) { %>
+                        <p><%= error %></p>
+                    <% } else { %>
+                        <p>No results found. Please try again.</p>
+                    <% } %>
+                </div>
+
+                <!-- Pagination Controls -->
+                <div class="pagination">
+                    <% if (currentPage > 1) { %>
+                        <span>Page <%= currentPage %> of <%= totalPages %></span>
+                        
+                        <form method="POST" action="/search">
+                            <input type="hidden" name="query" value="<%= query %>">
+                            <input type="hidden" name="page" value="<%= currentPage - 1 %>">
+                            <button type="submit">&laquo; Previous</button>
+                        </form>
+                    <% } %>
+                    
+                    <% if (currentPage < totalPages) { %>
+                        <form method="POST" action="/search" class="next-form">
+                            <input type="hidden" name="query" value="<%= query %>">
+                            <input type="hidden" name="page" value="<%= currentPage + 1 %>">
+                            <button type="submit">Next &raquo;</button>
+                        </form>
+                    <% } %>
+                </div>
+            </div> <!-- End of main-content -->
+
+            <%- include('../partials/footer') %> <!-- Include footer outside of main content -->
+        </div> <!-- End of container -->
 
         <script src="/scripts/main.js"></script>
-        <%- include('../partials/footer') %> <!-- Include footer -->
     </body>
 </html>
