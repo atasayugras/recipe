@@ -17,7 +17,10 @@
                 </div>
 
                 <!-- Results Section -->
-                <p> Recipes that include "<%= query %>".</p>
+                <% if (query) { %>
+                    <p> Recipes that include "<%= query %>".</p>
+                <% } %>
+     
                 <div id="results">
                     <% if (!searchInitiated) { %>
                         <p class="welcome-message">Type in ingredients or food names, and we'll find the perfect recipe for you!</p>

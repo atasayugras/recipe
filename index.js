@@ -31,6 +31,7 @@ app.get("/", (req, res) => {
         searchInitiated: false, 
         currentPage: 1, 
         totalPages: 0,
+        query: null,
         totalPointsUsed: 0,
         pointsRemaining: null, 
         pointsUsedForRequest: null
