@@ -12,8 +12,9 @@
     </div>
 
     <div class="quota-info">
-        <p>Points Remaining: <%= pointsRemaining ? pointsRemaining.toFixed(2) : 'N/A' %></p>
-        <p>Points Used for Request: <%= pointsUsedForRequest ? pointsUsedForRequest.toFixed(2) : 'N/A' %></p>
+        <% if (remainingAttempts) { %>
+            <p>Daily search quota: <%= remainingAttempts ? remainingAttempts.toFixed(2) : 'N/A' %></p>
+        <% } %>
     </div>
 </nav>
 </head>

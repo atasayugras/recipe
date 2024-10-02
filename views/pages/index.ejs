@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include('../partials/header', {
-        pointsRemaining: pointsRemaining || 0,  // Set default 0 if undefined
-        totalPointsUsed: totalPointsUsed || 0,  // Set default 0 if undefined
-        pointsUsedForRequest: pointsUsedForRequest || 0  // Set default 0 if undefined
+        remainingAttempts: remainingAttempts || 0  // Set default 0 if undefined
     }) %>
     <body>
         <div class="container">
@@ -23,7 +21,7 @@
      
                 <div id="results">
                     <% if (!searchInitiated) { %>
-                        <p class="welcome-message">Type in ingredients or food names, and we'll find the perfect recipe for you!</p>
+                        <p class="welcome-message">Type in ingredients or food names, and we'll find the perfect recipe for you! 🍽️</p>
                     <% } else if (data && data.length > 0) { %>
                         <div class="item-grid">
                             <% data.forEach(item => { %>
@@ -35,8 +33,10 @@
                                         <p>Dairy Free: <%= item.dairyFree ? 'Yes' : 'No' %></p>
                                         <p>Vegetarian: <%= item.vegetarian ? 'Yes' : 'No' %></p>
                                         <p>Vegan: <%= item.vegan ? 'Yes' : 'No' %></p>
+                                        <p>Diet: <%= item.diet ? 'Yes' : 'No' %></p>
+                                        <p>Intolerance: <%= item.intolerances ? 'Yes' : 'No' %></p>
                                     </div>
-                                    <a href="<%= item.sourceUrl %>" target="_blank">View Full Recipe</a>
+                                    <a href="<%= item.sourceUrl %>" target="_blank">View Full Recipe</a> <!-- Now this link should work -->
                                 </div>
                             <% }); %>
                         </div>
